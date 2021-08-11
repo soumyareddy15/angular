@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RetailerRegisterService {
-  url:string = "http://localhost:56783/";
+  url:string = "https://localhost:44390/api/retailer/";
   constructor(private http : HttpClient) { }
 
   retailerregister(retailername:string,retaileremail:string,retailerpassword:string): Observable<any>{

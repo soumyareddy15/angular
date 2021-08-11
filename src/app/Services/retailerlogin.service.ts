@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class RetailerloginService {
 
-  url:string = "http://localhost:56783/";
+  url:string = "https://localhost:44390/api/retailer/";
 
   constructor(private http:HttpClient) { }
 

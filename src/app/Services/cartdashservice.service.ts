@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class CartdashserviceService {
 
-  url:string = "http://localhost:56783/";
+  url:string = "https://localhost:44390/api/productupload/";
   constructor(private http :HttpClient) { }
 
   getCart(useremail:string):Observable<any>{

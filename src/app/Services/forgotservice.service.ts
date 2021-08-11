@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ForgotserviceService {
-  url:string = "http://localhost:56783/";
+  url:string = "https://localhost:44390/api/email/";
 
   constructor(private http : HttpClient ) { }
 

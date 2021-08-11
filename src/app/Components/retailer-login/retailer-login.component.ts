@@ -33,16 +33,30 @@ export class RetailerLoginComponent implements OnInit {
 
   doLogin(){
       this.status = this.retailserv.checkLogin(this.loginForm.value.retaileremail,this.loginForm.value.retailerpassword).subscribe(
-        data =>{
-          if(data=="valid"){
+        (data)=>{
+          
+          /*if(data=="Valid"){
               console.log(this.loginForm.value.retaileremail);
               sessionStorage.setItem('retaileremail',this.loginForm.value.retaileremail);
               this.router.navigate(['retailerdashboard']);
           }else{
             alert('Invalid credentials or Retailer not approved');
           }
+          */
+        },
+      (err)=>
+      {console.log(err.error)
+        if(err.error.text==='Valid')
+        {console.log(this.loginForm.value.retaileremail);
+          sessionStorage.setItem('retaileremail',this.loginForm.value.retaileremail);
+          this.router.navigate(['retailerdashboard']);;
         }
-      )
+        else
+        {
+          alert('Invalid credentials or Retailer not approved');
+        }
+       }
+     )
   }
 
 }

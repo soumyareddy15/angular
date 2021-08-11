@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import {LoginService}  from '../../Services/login.service';
+import { LoginService } from 'src/app/Services/login.service';
 import {Router} from '@angular/router';
+import { allowedNodeEnvironmentFlags } from 'process';
 
 @Component({
   selector: 'app-userlogin',
@@ -12,6 +13,9 @@ export class UserloginComponent implements OnInit {
 
   loginForm : FormGroup;
   status : any;
+  useremail:string;
+  userpassword:string;
+
   
   constructor(private formBuilder : FormBuilder, private loginserv : LoginService, private router: Router) { }
 
@@ -27,17 +31,35 @@ export class UserloginComponent implements OnInit {
   }
 
   doLogin(){
-    this.status = this.loginserv.doLogin(this.loginForm.value.useremail, this.loginForm.value.userpassword).subscribe(
-      data => {
-        if(data == "Success"){
+   this.loginserv.doLogin(this.loginForm.value.useremail, this.loginForm.value.userpassword).subscribe(
+      (data)=> {
+        console.log(data);
+        /*if(data == "Success"){
           sessionStorage.setItem('useremail',this.loginForm.value.useremail);
           sessionStorage.setItem('username',this.loginForm.value.username);
           alert('Login Sucessful')
           this.router.navigate(['home']);
         }else{
           alert("Invalid Credentials !");
+        }*/
+      },
+      (err)=>
+      {console.log(err.error)
+        if(err.error.text==='Success')
+        {
+          sessionStorage.setItem('useremail',this.loginForm.value.useremail);
+          sessionStorage.setItem('username',this.loginForm.value.username);
+          alert('Login Sucessful')
+          this.router.navigate(['home']);
+        }
+        else
+        {
+          alert("Invalid Credentials !");
         }
       }
+
+
     )
+   
   }
-}
+  }

@@ -9,7 +9,7 @@ export class ProductlistService {
   constructor(private http:HttpClient,private http1:HttpClient) { }
   getProduct(){
     //debugger;
-    return this.http.get("http://localhost:56783/getproducts");
+    return this.http.get("https://localhost:44390/api/productupload/getproducts");
 
 }
 }

@@ -7,10 +7,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class LoginService {
-  url:string = "http://localhost:56783/";
+  uri:string = "https://localhost:44390/api/User/";
   constructor(private http : HttpClient) { }
 
   doLogin(useremail : string, userpassword: string) : Observable<any>{
-      return this.http.get<any>(this.url+"do-login?useremail="+useremail+"&userpassword="+userpassword);
+      return this.http.get<any>(this.uri+"do-login?useremail="+useremail+"&userpassword="+userpassword);
   }
 }

@@ -9,14 +9,14 @@ import { Observable } from 'rxjs';
 export class UploadProductsService {
   constructor(private http : HttpClient) { }
 
-  url:string = "http://localhost:56783/";
+  url:string = "https://localhost:44390/api/filter/";
 
   getRetailerId(retaileremail:string):Observable<any>{
     return this.http.get(this.url+"GetRetailersId?retaileremail="+retaileremail);
   }
   postFile(retailerid:string,productname: string,productquantity:string,productprice: string,productdescription: string,productbrand: string,categoryid:string,fileToUpload: File) {
     debugger
-    const endpoint = 'http://localhost:56783/UploadImage';
+    const endpoint = 'http://localhost:44390/filter/UploadImage';
     const formData: FormData = new FormData();
     formData.append('Image', fileToUpload, fileToUpload.name);
     formData.append('RetailerId',retailerid);

@@ -45,16 +45,14 @@ export class ProductUploadComponent implements OnInit {
   OnSubmit(Retailerid,Productname,Productquantity,Productprice,Productdescription,Productbrand,Categoryid,Image){
     debugger
    this.imageService.postFile(Retailerid.value,Productname.value,Productquantity.value,Productprice.value,Productdescription.value,Productbrand.value,Categoryid.value,this.fileToUpload).subscribe(
-     data =>{
+     (data)=>{
        console.log('done');
        Productname.value = null;
        Productquantity.value=null;
        Productdescription.value = null;
        Productprice.value=null;
        Categoryid.value=null;
-     
-       Image.value = null;
-      
+       Image.value = null;     
        this.imageUrl = "./assets/upload.png";
       
      }

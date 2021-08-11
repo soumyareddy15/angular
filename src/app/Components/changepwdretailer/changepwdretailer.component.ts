@@ -34,15 +34,30 @@ export class ChangepwdretailerComponent implements OnInit {
   doChangePassword(){
     this.status = this.changepd.changeRetailer(this.forgotPasswordForm.value.useremail,
       this.forgotPasswordForm.value.oldpassword, this.forgotPasswordForm.value.newpassword).subscribe(
-        data => {
+        (data) => {
           if(data == "valid"){
             alert('Password changed successfully');
             this.router.navigate(['retailerlogin']);
           }else{
             alert('Please enter correct details');
           }
+        },
+        (err)=> 
+      {console.log(err.error)
+        debugger;
+        if(err.error.text==='valid')
+        {debugger;
+          alert('Password changed successfully');
+            this.router.navigate(['retailerlogin']);
         }
+        else
+        {
+          alert('Please enter correct details');
+        }
+      }
+
       )
+    }
   }
   
-}
+

@@ -33,7 +33,7 @@ export class CartDashboardComponent implements OnInit {
   
   removefromcart(cartid:number,productid : number){
     this.remove = this.usercartserv.removeProduct(cartid, productid).subscribe(
-      data =>{
+      (data)=>{
         if(data == "Success"){
           if(this.afterorder){
             alert('Order placed Successfully');

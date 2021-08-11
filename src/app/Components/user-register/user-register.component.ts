@@ -302,14 +302,28 @@ export class UserRegisterComponent implements OnInit {
     this.status = this.registerserv.UserRegister(this.registerForm.value.useremail,
       this.registerForm.value.username,this.registerForm.value.userphone, this.registerForm.value.userpassword,this.registerForm.value.userapartment,this.registerForm.value.userstreet,
       this.registerForm.value.usertown,this.registerForm.value.userstate,this.registerForm.value.userpincode,this.registerForm.value.usercountry).subscribe(
-        data=> {
-          if(data == "success"){
+        (data)=> {
+         
+          /*if(data == "success"){
             alert("Successfully registered");
             this.router.navigate(['userlogin']);
           }else{
             alert("Email id is already registered");
-          }
+          }*/
+        },
+      (err)=>
+      {console.log(err.error)
+        debugger;
+        if(err.error.text==="success")
+        {
+          alert("Successfully registered");
+            this.router.navigate(['userlogin']);
         }
+        else
+        {
+          alert("Email id is already registered");
+        }
+      }
       )
   }
 

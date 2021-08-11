@@ -13,20 +13,24 @@ export class AdminDashboardComponent implements OnInit {
   result : string;
   otpstatus :any;
 
-  constructor(private adminserv : AdminserviceService) { }
+  constructor(private adminserv : AdminserviceService) { 
+    //retailerid:any;
+  }
 
   ngOnInit(): void {
     this.retailerList = this.adminserv.getRetailers().subscribe(
       data=>{this.retailerList = data;}
     );
+    //this.ApporveRetailer(retailerid :number, retaileremail:string);
+    
   }
   ApporveRetailer(retailerid :number, retaileremail:string){
     this.status = this.adminserv.sendApproval(retailerid, retaileremail).subscribe(
       data=>{
         this.result = data;
         if(this.result == "Approved"){
-          //function
-          this.sendemail(retaileremail);
+           alert("Retailer is approved");
+          //this.sendemail(retaileremail);
         }
       }
     )  

@@ -10,7 +10,7 @@ export class SearchProductService {
   constructor(private http:HttpClient) { }
 
   searchProduct(desc:string):Observable<any>{
-    let url="http://localhost:56783/SearchProduct?search="+desc;
+    let url="https://localhost:44390/api/filter/SearchProduct?search="+desc;
     return this.http.get<any>(url);
   }
 }

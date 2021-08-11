@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProfileService {
-  url:string = "http://localhost:56783/";
+  url:string = "https://localhost:44390/api/userretailerprofile/";
   constructor(private http:HttpClient) { }
   
   getretailerprofile(retaileremail:string):Observable<any>

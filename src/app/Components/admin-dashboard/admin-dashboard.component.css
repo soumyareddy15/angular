@@ -4,8 +4,8 @@ table{
     margin-right: auto;
 }
 div{
-    background-color: black;
-    color: white;
+    background-color: rgb(219, 135, 215);
+    color: rgb(255, 255, 255);
     width: fit-content;
     margin-bottom: 40px;
 }

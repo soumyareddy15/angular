@@ -36,12 +36,26 @@ export class RetailerRegisterComponent implements OnInit {
 
   doRegister(){
     this.status=this.register.retailerregister(this.registerForm.value.retailername,this.registerForm.value.retaileremail,this.registerForm.value.retailerpassword).subscribe(
-      data=>{
+      (data)=>{
+        console.log(data);
         this.status=data;
         if(this.status=="valid"){
           alert("Registeration Successful");
           this.router.navigate(['retailerlogin']);
         }else{
+          alert('Email id already registered.');
+        }
+      },
+      (err)=> 
+      {console.log(err.error)
+        debugger;
+        if(err.error.text==='Valid')
+        {debugger;
+          alert("Registeration Successful");
+          this.router.navigate(['retailerlogin']);
+        }
+        else
+        {
           alert('Email id already registered.');
         }
       }

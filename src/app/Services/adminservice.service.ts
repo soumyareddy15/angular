@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AdminserviceService {
-  url:string = "http://localhost:56783/";
+  url:string = "https://localhost:44390/api/admin/";
   constructor(private http : HttpClient) { }
 
   getRetailers(){

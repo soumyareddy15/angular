@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ChangepasswordService {
 
-  url:string = "http://localhost:56783/";
+  url:string = "https://localhost:44390/api/";
   constructor(private http : HttpClient) { }
   
 

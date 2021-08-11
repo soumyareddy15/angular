@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ForgotretailerService {
 
-  url:string = "http://localhost:56783/";
+  url:string = "https://localhost:44390/api/email/";
 
   constructor(private http : HttpClient) { }
   sendOTP(email: string) : Observable<any>{

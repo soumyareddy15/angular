@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AddToCartService {
 
-  url:string = "http://localhost:56783/";
+  url:string = "https://localhost:44390/api/productupload/";
 
     constructor(private http : HttpClient) { }
 

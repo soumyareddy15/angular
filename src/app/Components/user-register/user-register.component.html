@@ -64,11 +64,12 @@
                             <label> Apartment :</label>
                             <input type = "text" class="form-control" formControlName = "userapartment" >
                             <div *ngIf = "g.userapartment.errors && g.userapartment.touched" class="text-danger">
-                                <div *ngIf = "g.userapartment.errors.required">Apartment is required</div>
-                                <div *ngIf = "g.userapartment.errors.minlength">Apartment should be of min length 5</div>
+                                <div *ngIf = "g.userapartment.errors.required">Appartment is required</div>
+                                <div *ngIf = "g.userapartment.errors.minlength">Appartment should be of min length 5</div>
                             </div>
                         </div>
                     </div>
+                    
                     <div class="form-row">
                         <div class="form-group col-lg-7">
                             <label> Street :</label>

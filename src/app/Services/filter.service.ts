@@ -14,7 +14,7 @@ const httpOptions = {
 export class FilterService {
 
   constructor(private http:HttpClient) { }
-  url:string = "http://localhost:56783/";
+  url:string = "https://localhost:44390/api/filter/";
   filterbyprice(pricerange:string):Observable<any>
   {
      // debugger;
